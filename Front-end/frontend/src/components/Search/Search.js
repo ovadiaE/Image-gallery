@@ -7,15 +7,15 @@ const Search = ({ search, setSearch, handleSubmit }) => {
     <Container className="mt-4">
       <Row className="justify-content-center">
         <Col xs={12} md={8}>
-          <Form
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            onSubmit={handleSubmit}
-          >
+          <Form onSubmit={handleSubmit}>
             <Row>
               <Col xs={9}>
-                <Form.Control placeholder="Search Image" />
+                <Form.Control
+                  placeholder="Search Image"
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
               </Col>
               <Col>
                 <Button variant="primary" type="submit">
