@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
@@ -24,7 +25,9 @@ function App() {
     }
     setSearch("");
   };
-
+  const handleDeleteimage = (id) => {
+    setImages(images.filter((image) => image.id !== id));
+  };
   return (
     <>
       <div>
@@ -34,9 +37,18 @@ function App() {
           search={search}
           setSearch={setSearch}
         />
-        {images.map((image, key) => (
-          <ImageCard key={images.id} image={image} />
-        ))}
+        <Container className="mt-4">
+          <Row className="pb-3" xs={1} md={2} lg={3}>
+            {images.map((image, key) => (
+              <Col key={images.id}>
+                <ImageCard
+                  handleDeleteimage={handleDeleteimage}
+                  image={image}
+                />{" "}
+              </Col>
+            ))}
+          </Row>
+        </Container>
       </div>
     </>
   );
