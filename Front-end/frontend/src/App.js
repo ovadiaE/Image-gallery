@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import ImageCard from "./components/Images/ImageCard";
+import Welcome from "./components/Welcome/Welcome";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -38,16 +39,20 @@ function App() {
           setSearch={setSearch}
         />
         <Container className="mt-4">
-          <Row className="pb-3" xs={1} md={2} lg={3}>
-            {images.map((image, key) => (
-              <Col key={images.id}>
-                <ImageCard
-                  handleDeleteimage={handleDeleteimage}
-                  image={image}
-                />{" "}
-              </Col>
-            ))}
-          </Row>
+          {images.length ? (
+            <Row className="pb-3" xs={1} md={2} lg={3}>
+              {images.map((image, key) => (
+                <Col key={images.id}>
+                  <ImageCard
+                    handleDeleteimage={handleDeleteimage}
+                    image={image}
+                  />{" "}
+                </Col>
+              ))}
+            </Row>
+          ) : (
+            <Welcome />
+          )}
         </Container>
       </div>
     </>
