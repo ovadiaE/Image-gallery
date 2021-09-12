@@ -46,7 +46,7 @@ function App() {
                   <ImageCard
                     handleDeleteimage={handleDeleteimage}
                     image={image}
-                  />{" "}
+                  />
                 </Col>
               ))}
             </Row>

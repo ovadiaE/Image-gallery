@@ -1,11 +1,11 @@
 import React from "react";
-import { Jumbotron, Button } from "reactstrap";
+// import { Jumbotron, Button } from "reactstrap";
 
 const Welcome = () => {
   return (
     <>
       <div>
-        <Jumbotron>
+        {/* <Jumbotron>
           <h1 className="display-3">Image Gallery</h1>
           <p className="lead">
             This is a simple application that retrieves photos using Unsplash
@@ -21,7 +21,7 @@ const Welcome = () => {
               Learn More
             </Button>
           </p>
-        </Jumbotron>
+        </Jumbotron> */}
       </div>
     </>
   );
