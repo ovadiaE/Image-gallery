@@ -19,7 +19,7 @@ function App() {
         `https://api.unsplash.com/photos/random/?query=${search}&client_id=${UNSPLASH_KEY}`
       );
       let data = await response.data;
-      console.log(data);
+      console.log(response.config.url);
       setImages([{ ...data, title: search }, ...images]);
     } catch (error) {
       console.log(error);
