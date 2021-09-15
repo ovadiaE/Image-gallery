@@ -10,14 +10,13 @@ import Welcome from "./components/Welcome/Welcome";
 function App() {
   const [search, setSearch] = useState("");
   const [images, setImages] = useState([]);
-  const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+  const UNSPLASH_URL =
+    process.env.REACT_APP_UNSPLASH_URL || "http://10.100.102.73:5050";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await axios.get(
-        `https://api.unsplash.com/photos/random/?query=${search}&client_id=${UNSPLASH_KEY}`
-      );
+      let response = await axios.get(`${UNSPLASH_URL}/new-image?query=${search}`);
       let data = await response.data;
       console.log(response.config.url);
       setImages([{ ...data, title: search }, ...images]);

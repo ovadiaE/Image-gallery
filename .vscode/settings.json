@@ -1,8 +1,9 @@
 {
-    "json.schemas": [
-    
-    ],
-    "material-icon-theme.files.associations": {
-    
-    }
+  "json.schemas": [],
+  "material-icon-theme.files.associations": {},
+  "python.formatting.provider": "autopep8",
+  "python.autoComplete.addBrackets": true,
+  "python.formatting.autopep8Path": "black",
+
+  "editor.formatOnSave": true
 }
