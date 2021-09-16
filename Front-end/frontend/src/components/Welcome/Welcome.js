@@ -8,7 +8,7 @@ const Welcome = () => {
         <Jumbotron>
           <h1 className="display-3">Image Gallery</h1>
           <p className="lead">
-            This is a simple application that retrieves photos using Unsplash
+            This is a simple application that retrieves photos using React, Flask, and Unsplash
             API. <br></br> Search any term to start.
           </p>
           <hr className="my-2" />

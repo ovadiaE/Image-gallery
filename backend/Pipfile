@@ -6,8 +6,13 @@ name = "pypi"
 [packages]
 flask = "==1.1.2"
 requests = "==2.25.1"
+flask-cors = "*"
+pep8 = "*"
 
 [dev-packages]
+pylint = "*"
+pycodestyle = "*"
+black = "==20.8b1"
 
 [requires]
 python_version = "3.9"
