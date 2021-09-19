@@ -10,15 +10,16 @@ import Welcome from "./components/Welcome/Welcome";
 function App() {
   const [search, setSearch] = useState("");
   const [images, setImages] = useState([]);
-  const UNSPLASH_URL =
-    process.env.REACT_APP_UNSPLASH_URL || "http://10.100.102.73:5050";
+  const UNSPLASH_URL = " http://192.168.11.174:5050/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await axios.get(`${UNSPLASH_URL}/new-image?query=${search}`);
+      let response = await axios.get(
+        `${UNSPLASH_URL}/new-image?query=${search}`
+      );
       let data = await response.data;
-      console.log(response.config.url);
+
       setImages([{ ...data, title: search }, ...images]);
     } catch (error) {
       console.log(error);

@@ -10,28 +10,32 @@ const Signup = () => {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [formData, setFormData] = useState({});
   const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+
   const handleClose = () => {
     setShow(false);
     setpasswordError({});
     setuserNameError({});
     setPasswordMatch({});
   };
-  const handleShow = () => setShow(true);
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    const isValid = formValidation();
+    let formData = {};
 
-    if (isValid) {
+    e.preventDefault();
+
+    if (formValidation) {
       try {
-        setFormData = {
+        formData = {
           email: email,
           username: userName,
           password: password,
         };
-        let response = await axios.post(`MYURL`, formData);
+        let response = await axios.post(
+          "http://192.168.11.174:5050/new-user",
+          formData
+        );
         console.log(response);
         handleClose();
       } catch (error) {
@@ -130,6 +134,13 @@ const Signup = () => {
                 type="password"
                 placeholder="confirm password"
               />
+              {Object.keys(passwordMatch).map((key) => {
+                return (
+                  <div className="error" style={{ color: "red" }}>
+                    {passwordMatch[key]}
+                  </div>
+                );
+              })}
             </Form.Group>
           </Form>
         </Modal.Body>

@@ -1,20 +1,36 @@
 import { useState } from "react";
+import axios from "axios";
 import { Button, Modal, Form } from "react-bootstrap";
 function Login() {
   const [show, setShow] = useState(false);
-  const [emailError, setEmailerror] = useState({});
   const [passwordError, setPassworderror] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
+    let formData = {};
     e.preventDefault();
     const isValid = formValidation();
-    isValid && handleClose();
+
+    if (isValid) {
+      try {
+        formData = {
+          email: email,
+          password: password,
+        };
+        let response = await axios.post(
+          "http://192.168.11.174:5050/login",
+          formData
+        );
+        console.log(response);
+        handleClose();
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   const formValidation = () => {
-    const firstNameErr = {};
     const passwordError = {};
     let isValid = true;
 
