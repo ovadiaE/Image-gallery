@@ -33,7 +33,7 @@ const Signup = () => {
           password: password,
         };
         let response = await axios.post(
-          "http://192.168.11.174:5050/new-user",
+          " http://172.16.1.45:5050/new-user",
           formData
         );
         console.log(response);

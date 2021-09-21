@@ -10,7 +10,7 @@ import Welcome from "./components/Welcome/Welcome";
 function App() {
   const [search, setSearch] = useState("");
   const [images, setImages] = useState([]);
-  const UNSPLASH_URL = " http://192.168.11.174:5050/";
+  const UNSPLASH_URL = " http://172.16.1.45:5050/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
